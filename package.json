@@ -1,0 +1,35 @@
+{
+  "name": "pytron",
+  "version": "1.0.0",
+  "description": "BTC Notification",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "build --dir",
+    "dist": "build",
+    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/icons/mac/icon.icns --prune=true --out=release-builds",
+    "package-win": "electron-packager . electron-tutorial-app --overwrite --asar=true --platform=win32 --arch=ia32 --icon=assets/icons/win/icon.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Bitcoin Update\"",
+    "package-linux": "electron-packager . electron-tutorial-app --overwrite --asar=true --platform=linux --arch=x64 --icon=assets/icons/png/1024x1024.png --prune=true --out=release-builds"
+  },
+  "author": "Zacchaeus Oluwole",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.20.0",
+    "electron": "v10.1.0",
+    "python-shell": "^3.0.0"
+  },
+  "devDependencies": {
+    "electron-builder": "^22.8.0",
+    "electron-packager": "^15.1.0"
+  },
+  "build": {
+    "appId": "com.zacchaeus.bitcoinupdate",
+    "directories": {
+      "output": "build"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "build/icon.ico"
+    }
+  }
+}
